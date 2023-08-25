@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.mt</groupId>
+    <artifactId>jendarey</artifactId>
+    <version>1.0</version>
+    <packaging>war</packaging>
+    <name>jendarey-tech</name>
+    <description>JendareyTech Web Java Project</description>
+
+    <organization>
+        <name>Jendarey Technologies</name>
+        <url>https://devops.jendareyconsulting.com/</url>
+    </organization>
+
+    <properties>
+        <spring-boot.version>2.1.5.RELEASE</spring-boot.version>
+        <java.version>11</java.version>
+        <sonar.host.url>http:54.237.56.200:9000/</sonar.host.url>
+        <sonar.login>admin</sonar.login>
+        <sonar.password>admin</sonar.password>
+    </properties>
+
+    <dependencies>
+        <!-- Spring Boot Starter Web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+
+        <!-- Spring Boot Starter Test -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${spring-boot.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Spring Boot Starter Data MongoDB -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+
+        <!-- JSON Library -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20210307</version>
+        </dependency>
+
+        <!-- Servlet API -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Mockito for Testing -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>3.12.4</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- MongoDB Java Driver -->
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongodb-driver-sync</artifactId>
+            <version>4.3.1</version>
+        </dependency>
+    </dependencies>
+
+     <distributionManagement>
+        <repository>
+            <id>nexus</id>
+            <name>Jendarey Technologies Releases Nexus Repository</name>
+            <url>http://52.86.152.244:8081/jendareytech/repository/releases/</url>
+        </repository>
+
+        <snapshotRepository>
+            <id>nexus</id>
+            <name>Jendarey Technologies Snapshot Nexus Repository</name>
+            <url>http://52.86.152.244:8081/jendareytech/repository/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <version>${spring-boot.version}</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>repackage</goal>
+                    </goals>
+                    <configuration>
+                        <mainClass>com.mt.JendareyConsultingApplication</mainClass>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+        <!-- Other plugins... -->
+    </plugins>
+</build>
+
+</project>
+
